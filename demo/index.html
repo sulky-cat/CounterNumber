@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Counter number</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <h1 class="title">Примеры</h1>
+
+   <section id="ex_1" class="section">
+      <h2 class="section__title">Обычное применение</h2>
+      <p data-counter data-scroll>100</p>
+      <p data-counter data-scroll>200</p>
+      <p data-counter data-scroll>300</p>
+   </section>
+   <section id="ex_2" class="section">
+      <h2 class="section__title">Изменение начала отсчета</h2>
+      <p data-counter data-scroll data-start="50">100</p>
+      <p data-counter data-scroll data-start="50">500</p>
+      <p data-counter data-scroll data-start="150000">50</p>
+   </section>
+   <section id="ex_3" class="section">
+      <h2 class="section__title">Изменение времени анимации</h2>
+      <p data-counter data-scroll data-duration="1000">1000</p>
+      <p data-counter data-scroll data-duration="2500">2500</p>
+      <p data-counter data-scroll data-duration="3000">3000</p>
+   </section>
+   <section id="ex_4" class="section">
+      <h2 class="section__title">Изменение формата (js)</h2>
+      <p class="format" data-scroll data-duration="1000">1000</p>
+      <p class="format" data-scroll data-duration="2500">2500000</p>
+      <p class="format" data-scroll data-duration="3000">3002110300</p>
+   </section>
+   <section id="ex_5" class="section">
+      <h2 class="section__title">Однократное повторение</h2>
+      <p data-counter data-scroll data-once data-duration="2000">1340</p>
+      <p data-counter data-scroll data-once data-duration="2000">2000</p>
+      <p data-counter data-scroll data-once data-duration="2000">4180</p>
+   </section>
+   <section id="ex_6" class="section">
+      <h2 class="section__title">Изменение временной функции (js)</h2>
+      <p class="time-func" data-scroll data-duration="3000">10</p>
+      <p class="time-func" data-scroll data-duration="3000">20</p>
+      <p class="time-func" data-scroll data-duration="3000">40</p>
+   </section>
+   <section id="ex_7" class="section">
+      <h2 class="section__title">Иной триггер срабатывания (CounterNumber)</h2>
+      <div class="section__line">
+         <button type="button">Нажми на меня</button>
+         <p data-counter data-duration="1000">12345</p>
+      </div>
+      <div class="section__line">
+         <button type="button">Нажми на меня</button>
+         <p data-counter data-duration="2000">3451</p>
+      </div>
+      <div class="section__line">
+         <button type="button">Нажми на меня</button>
+         <p data-counter data-duration="3000">38900</p>
+      </div>
+   </section>
+   <section id="ex_8" class="section">
+      <h2 class="section__title">Иной триггер срабатывания (Counter)</h2>
+      <div class="section__line">
+         <button type="button">Нажми на меня</button>
+         <p class="counter" data-duration="1000">12345</p>
+      </div>
+      <div class="section__line">
+         <button type="button">Нажми на меня</button>
+         <p class="counter" data-duration="2000">3451</p>
+      </div>
+      <div class="section__line">
+         <button type="button">Нажми на меня</button>
+         <p class="counter" data-duration="3000">38900</p>
+      </div>
+   </section>
+
+   <script type="module" src="script.js"></script>
+</body>
+
+</html>
