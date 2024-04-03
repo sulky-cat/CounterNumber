@@ -7,7 +7,7 @@ export default class CounterNumber {
       rootmargin: 0,
       threshold: 0.5,
       // Play 1 time
-      one: false,
+      once: false,
       // A class that is added if the object is visible
       className: '_visible_',
    }
@@ -18,7 +18,9 @@ export default class CounterNumber {
       // Play scroll
       this.scroll()
    }
-
+   getCounter(currentElement) {
+      return this.elements.find(({ element }) => element === currentElement)
+   }
    scroll() {
       // Options Intersection Observer
       const options = {
@@ -29,11 +31,11 @@ export default class CounterNumber {
       const callback = (entries, observer) => {
          for (const entery of entries) {
             if (entery.isIntersecting) {
-               const once = entery.target.hasAttribute('data-once') || this.options.one
+               const once = entery.target.hasAttribute('data-once') || this.options.once
                // If observed, add class
                entery.target.classList.add(this.options.className)
                // Start of counting
-               const currentElement = this.elements.find(({ element }) => element === entery.target)
+               const currentElement = this.getCounter(entery.target)
                currentElement.count()
                if (once) observer.unobserve(entery.target)
             } else {
@@ -47,7 +49,7 @@ export default class CounterNumber {
       const observer = new IntersectionObserver(callback, options)
       // Monitor the required elements
       for (const { element } of this.elements) {
-         if (element.hasAttribute('data-scroll'))
+         if (!element.hasAttribute('data-other-trigger'))
             observer.observe(element)
       }
    }

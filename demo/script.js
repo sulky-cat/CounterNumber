@@ -9,8 +9,7 @@ const section = document.querySelector('#ex_7')
 section.addEventListener('click', (e) => {
    const btn = e.target.closest('button')
    if (!btn) return
-   const output = btn.nextElementSibling
-   const counter = countersNumber.elements.find(({ element }) => element === output)
+   const counter = countersNumber.getCounter(btn.nextElementSibling)
    counter.count()
 })
 // ===
