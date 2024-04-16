@@ -1,3 +1,5 @@
+import Timer from "./Timer.js"
+
 export default class Counter {
    // Format number
    static format = (number) => Math.floor(number)
@@ -29,14 +31,12 @@ export default class Counter {
       const end = new Date()
       end.setTime(end.getTime() + duration)
       // Update
-      const update = () => {
-         const time = Math.min(Date.now(), end) - start
+
+      Timer.start(time => {
          // Step counting with adjustable time function
          const step = this.timeFunc(time, endValue, duration, this.startValue)
          // Recording an updated number
          this.element.textContent = this.format(step)
-         if (time < duration) window.requestAnimationFrame(update)
-      }
-      window.requestAnimationFrame(update)
+      }, duration)
    }
 }
