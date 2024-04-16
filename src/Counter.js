@@ -32,7 +32,7 @@ export default class Counter {
       end.setTime(end.getTime() + duration)
       // Update
 
-      Timer.start(time => {
+      return Timer.start(time => {
          // Step counting with adjustable time function
          const step = this.timeFunc(time, endValue, duration, this.startValue)
          // Recording an updated number
