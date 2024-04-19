@@ -24,19 +24,14 @@ export default class Counter {
       this.element.textContent = this.format(this.startValue)
    }
    // Changing values
-   count(duration = this.duration, endValue = this.endValue) {
-      // Start of counting
-      const start = new Date()
-      // End of countdown
-      const end = new Date()
-      end.setTime(end.getTime() + duration)
-      // Update
-
-      return Timer.start(time => {
+   async count(duration = this.duration, endValue = this.endValue) {
+      await Timer.start(time => {
          // Step counting with adjustable time function
          const step = this.timeFunc(time, endValue, duration, this.startValue)
          // Recording an updated number
          this.element.textContent = this.format(step)
       }, duration)
+
+      return this.element
    }
 }
