@@ -25,12 +25,15 @@ export default class Counter {
    }
    // Changing values
    async count(duration = this.duration, endValue = this.endValue) {
-      await Timer.start(time => {
-         // Step counting with adjustable time function
-         const step = this.timeFunc(time, endValue, duration, this.startValue)
-         // Recording an updated number
-         this.element.textContent = this.format(step)
-      }, duration)
+      await Timer.start({
+         func: time => {
+            // Step counting with adjustable time function
+            const step = this.timeFunc(time, endValue, duration, this.startValue)
+            // Recording an updated number
+            this.element.textContent = this.format(step)
+         },
+         duration
+      })
 
       return this.element
    }
